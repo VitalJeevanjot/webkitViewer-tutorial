@@ -6,6 +6,16 @@
 //
 
 import Foundation
+import SwiftData
+
+@Model
+class FavouritesList {
+    @Attribute(.unique) var favouriteUrl: URL
+    
+    init(favouriteUrl: URL) {
+        self.favouriteUrl = favouriteUrl
+    }
+}
 
 @Observable class Observables {
     var estimatedProgress: Double = 0
@@ -13,6 +23,8 @@ import Foundation
     var canGoForward: Bool = false
     var searchUrl: String = ""
     var sharableLink: URL?
+    var countedSoFar: Int = 1
+    var isFavourite: Bool = false
 }
 
 class ObservablePropertiesTokens: NSObject {
